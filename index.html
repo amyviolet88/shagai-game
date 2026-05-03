@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="mn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дөрвөн Бэрх</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Дөрвөн Бэрх</h1>
-        <div class="shagai-container" id="shagai-field">
-            <div class="shagai" id="s1"></div>
-            <div class="shagai" id="s2"></div>
-            <div class="shagai" id="s3"></div>
-            <div class="shagai" id="s4"></div>
-        </div>
-        <button id="throw-btn" onclick="throwShagai()">Шагай орхих</button>
-        <div id="result">Амжилт хүсье!</div>
-        <p id="symbol-text" style="color: #8B0000; margin-top: 10px;"></p>
+<div class="main-wrapper">
+    <h1 style="position: absolute; top: 150px; color: #8B0000;">Дөрвөн Бэрх</h1>
+    
+    <div class="shagai-ring" id="shagai-field">
+        <div class="shagai" id="s1"></div>
+        <div class="shagai" id="s2"></div>
+        <div class="shagai" id="s3"></div>
+        <div class="shagai" id="s4"></div>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+
+    <button id="throw-btn" onclick="throwShagai()">Шагай орхих</button>
+    <div id="result">Аз хийморио үзээрэй!</div>
+</div>
