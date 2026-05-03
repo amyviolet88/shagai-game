@@ -1,0 +1,77 @@
+body {
+    background-color: #4a0404; /* Хүрэн улаан дэвсгэр */
+    background-image: radial-gradient(circle, #730d0d 0%, #4a0404 100%);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 5px solid #d4af37; /* Алтан хүрээ */
+}
+
+#shagai-field {
+    display: flex;
+    gap: 15px;
+    margin: 40px 0;
+    justify-content: center;
+}
+
+.shagai {
+    width: 100px;
+    height: 100px;
+    background-color: #fdfdfd;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+}
+
+/* Таны илгээсэн зургийн файлын нэрс */
+.shagai-honi { background-image: url('honi.png.png'); }
+.shagai-mori { background-image: url('mori.png.png'); }
+.shagai-temee { background-image: url('temee.png.png'); }
+.shagai-yamaa { background-image: url('yamaa.png.png'); }
+
+/* Өнхрөх эффект */
+.rolling {
+    animation: roll 0.15s infinite;
+}
+
+@keyframes roll {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+button {
+    padding: 15px 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    background: #a4161a;
+    color: white;
+    border: 2px solid #ffba08;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e5383b;
+    transform: scale(1.05);
+}
+
+.result-area {
+    margin-top: 20px;
+    min-height: 80px;
+}
