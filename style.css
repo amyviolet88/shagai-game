@@ -1,50 +1,26 @@
 body {
-    /* Таны оруулсан зургийг арын фон болгох */
-    background-image: url('монгол_хээ_төв.jpg'); 
-    background-size: cover;
+    background-image: url('монгол_хээ_төв.jpg'); /* Зургийн нэрийг зөв бичсэн эсэхээ шалгаарай */
+    background-size: contain; /* Хээг бүтнээр нь харуулах */
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #ffffff; /* Зургийн гадуурх өнгө */
     height: 100vh;
     margin: 0;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-#game-container {
+#shagai-container {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 400px; /* Хээнийхээ төв хэсэгт тааруулах */
+    height: 400px;
 }
 
 .shagai {
     position: absolute;
-    width: 80px; /* Шагайн хэмжээ */
-    height: auto;
-    /* Эхлэх цэг: Дэлгэцийн төв */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-button {
-    margin-top: auto;
-    margin-bottom: 80px;
-    background-color: #e63946;
-    color: white;
-    border: 2px solid #d4af37;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-}
-
-#result {
-    position: absolute;
-    bottom: 40px;
-    color: #000;
-    font-weight: bold;
+    width: 70px;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
