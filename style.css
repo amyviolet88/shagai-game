@@ -24,3 +24,28 @@ body {
     width: 70px;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Хөндлөн төвд */
+    align-items: center;     /* Босоо төвд */
+}
+
+#shagai-container {
+    position: relative;
+    width: 100px; /* Төв цэгийн хэмжээ */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shagai {
+    position: absolute; /* Бүх шагайг нэг цэг дээр давхарлана */
+    width: 60px;       /* Шагайн хэмжээ */
+    opacity: 1;
+    user-select: none;
+}
