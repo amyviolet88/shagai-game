@@ -11,13 +11,15 @@ body {
     position: relative;
     width: 450px;
     height: 650px;
-    background-image: url('монгол хээ.jfif'); /* ЗУРГИЙН НЭРЭЭ ШАЛГААРАЙ */
+    background-image: url('pattern.jpg'); /* Зургийн нэр ижил байх ёстой */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff; /* Зураг ачааллахгүй үед цагаан харагдана */
+    border-radius: 20px;
 }
 
 h1 {
@@ -28,7 +30,7 @@ h1 {
 
 .shagai-ring {
     position: absolute;
-    top: 42%; /* Дугуй хээний голд тааруулсан */
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 280px;
@@ -43,7 +45,7 @@ h1 {
 .shagai {
     width: 85px;
     height: 85px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     border: 1px solid #d4af37;
     border-radius: 10px;
     display: flex;
@@ -71,7 +73,6 @@ button {
     font-weight: bold;
     border-radius: 30px;
     cursor: pointer;
-    z-index: 10;
 }
 
 #result {
