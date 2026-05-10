@@ -1,51 +1,58 @@
 body {
-    background-image: url('монгол_хээ_төв.jpg'); /* Зургийн нэрийг зөв бичсэн эсэхээ шалгаарай */
-    background-size: contain; /* Хээг бүтнээр нь харуулах */
+    margin: 0;
+    padding: 0;
+    /* Арын фон */
+    background-image: url('background.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #ffffff; /* Зургийн гадуурх өнгө */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#game-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 #shagai-container {
     position: relative;
-    width: 400px; /* Хээнийхээ төв хэсэгт тааруулах */
-    height: 400px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;
 }
 
 .shagai {
     position: absolute;
-    width: 70px;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 80px; /* Хэмжээг эндээс тохируулна */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
-#game-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* Хөндлөн төвд */
-    align-items: center;     /* Босоо төвд */
+#roll-button {
+    padding: 15px 40px;
+    font-size: 20px;
+    background-color: #d4af37; /* Алтан шар өнгө */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 100;
 }
 
-#shagai-container {
-    position: relative;
-    width: 100px; /* Төв цэгийн хэмжээ */
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.shagai {
-    position: absolute; /* Бүх шагайг нэг цэг дээр давхарлана */
-    width: 60px;       /* Шагайн хэмжээ */
-    opacity: 1;
-    user-select: none;
+#roll-button:hover {
+    background-color: #b8962d;
 }
