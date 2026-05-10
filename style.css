@@ -1,68 +1,58 @@
-/* Бүх зүйлийг шинээр эхлүүлэх */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     background-color: #8B0000;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
 }
 
 .main-wrapper {
     position: relative;
-    width: 600px;
-    height: 850px;
-    background-color: white; /* Зураг уншихгүй байсан ч цагаан харагдана */
-    background-image: url('pattern.jpg'); /* ЭНД ЗУРГИЙН НЭР ЯГ ИЖИЛ БАЙХ ЁСТОЙ */
-    background-size: 100% 100%;
+    width: 450px;
+    height: 650px;
+    background-image: url('монгол хээ.jfif'); /* ЗУРГИЙН НЭРЭЭ ШАЛГААРАЙ */
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
 h1 {
-    margin-top: 150px;
+    margin-top: 80px;
     color: #8B0000;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .shagai-ring {
     position: absolute;
-    top: 45%;
+    top: 42%; /* Дугуй хээний голд тааруулсан */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .shagai {
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.5);
-    border: 2px solid #d4af37;
-    border-radius: 15px;
+    width: 85px;
+    height: 85px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #d4af37;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .spinning {
-    animation: spin 0.6s linear infinite;
+    animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
@@ -72,25 +62,21 @@ h1 {
 
 button {
     margin-top: auto;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     background-color: #e63946;
     color: white;
-    border: 3px solid #d4af37;
-    padding: 15px 40px;
-    font-size: 1.2rem;
+    border: 2px solid #d4af37;
+    padding: 12px 30px;
+    font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 50px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #8B0000;
+    z-index: 10;
 }
 
 #result {
-    margin-bottom: 60px;
+    position: absolute;
+    bottom: 40px;
     color: #000;
     font-weight: bold;
-    font-size: 1.3rem;
 }
