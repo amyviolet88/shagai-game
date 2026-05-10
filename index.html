@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дөрвөн бэрх</title>
+    <title>Дөрвөн бэрх - Шагай няслах</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +12,17 @@
         <h1>Дөрвөн бэрх буулгацгаая!</h1>
         
         <div id="shagai-container">
-            <img src="honi.png.png" class="shagai">
-            <img src="yamaa.png.png" class="shagai">
-            <img src="temee.png.png" class="shagai">
-            <img src="mori.png.png" class="shagai">
+            <img src="honi.png.png" class="shagai" alt="shagai">
+            <img src="yamaa.png.png" class="shagai" alt="shagai">
+            <img src="temee.png.png" class="shagai" alt="shagai">
+            <img src="mori.png.png" class="shagai" alt="shagai">
         </div>
         
-        <div id="result-text">Шагайгаа орхино уу...</div>
+        <div id="result-box">
+            <p id="result-text">Шагайгаа орхиж хийморио үзээрэй!</p>
+        </div>
         
-        <button id="roll-button" onclick="rollShagai()">Шидэх</button>
+        <button id="roll-button" onclick="rollShagai()">Шагай орхих</button>
     </div>
 
     <script src="script.js"></script>
