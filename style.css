@@ -1,58 +1,59 @@
 body {
     margin: 0;
-    padding: 0;
-    /* Арын фон */
     background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-top: -50px;
 }
 
 #game-container {
     text-align: center;
-    position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #shagai-container {
     position: relative;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 50px;
+    height: 300px;
+    margin: 20px auto;
 }
 
 .shagai {
     position: absolute;
-    width: 80px; /* Хэмжээг эндээс тохируулна */
+    width: 80px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    pointer-events: none;
+}
+
+#result-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 20px 0;
+    min-height: 30px;
 }
 
 #roll-button {
     padding: 15px 40px;
     font-size: 20px;
-    background-color: #d4af37; /* Алтан шар өнгө */
+    background-color: #d4af37;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 100;
-}
-
-#roll-button:hover {
-    background-color: #b8962d;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
