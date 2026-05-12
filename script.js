@@ -1,23 +1,22 @@
 const container = document.getElementById('shagai-container');
 const music = document.getElementById('bgMusic');
 const numberOfShagai = 4;
-const radius = 130; // Хээний гол тойрогт тааруулсан радиус
+const radius = 140; // Хээний голын тойрогт тааруулах зай
 
-// Шагайнуудын зургийн нэрс (өөрийн файлын нэрээр солино уу)
+// Файлын нэрсийг латин болгосон
 const shagaiTypes = ['horse.png', 'sheep.png', 'camel.png', 'goat.png'];
 
-// 1. Шагайнуудыг тойрог хэлбэрээр анхлан байрлуулах функц
 function initializeShagai() {
-    container.innerHTML = ''; // Дахин зурахаас өмнө цэвэрлэнэ
+    container.innerHTML = '';
     for (let i = 0; i < numberOfShagai; i++) {
         const shagai = document.createElement('img');
-        shagai.src = shagaiTypes[Math.floor(Math.random() * shagaiTypes.length)];
+        // Эхлээд бүгдийг нь хонь болгож харуулъя
+        shagai.src = 'sheep.png'; 
         shagai.className = 'shagai';
-        shagai.id = `shagai-${i}`;
 
         const angle = (i / numberOfShagai) * (2 * Math.PI);
-        const x = Math.cos(angle) * radius + (container.clientWidth / 2) - 35;
-        const y = Math.sin(angle) * radius + (container.clientHeight / 2) - 35;
+        const x = Math.cos(angle) * radius + (container.clientWidth / 2) - 40;
+        const y = Math.sin(angle) * radius + (container.clientHeight / 2) - 40;
 
         shagai.style.left = `${x}px`;
         shagai.style.top = `${y}px`;
@@ -26,26 +25,25 @@ function initializeShagai() {
     }
 }
 
-// 2. Шагай орхих (санамсаргүй зураг гаргах)
 function rollShagai() {
-    // Хэрэв ая эхлээгүй бол тоглуулж эхэлнэ
-    if (music.paused) music.play();
+    // Хэрэглэгч товч дарахад ая тоглуулж эхэлнэ
+    if (music.paused) {
+        music.play().catch(e => console.log("Ая тоглуулахад алдаа гарлаа"));
+    }
 
     const shagaiElements = document.querySelectorAll('.shagai');
     shagaiElements.forEach(el => {
-        // Санамсаргүй төрөл сонгох
         const randomType = shagaiTypes[Math.floor(Math.random() * shagaiTypes.length)];
         el.src = randomType;
         
-        // Бага зэрэг "үсэрч" байгаа мэт эффект
-        el.style.transform = `scale(1.2) rotate(${Math.random() * 360}deg)`;
+        // Хаях үед эргэлдэх эффект
+        el.style.transform = `scale(1.3) rotate(${Math.random() * 360}deg)`;
         setTimeout(() => {
             el.style.transform = `scale(1) rotate(0deg)`;
-        }, 300);
+        }, 200);
     });
 }
 
-// 3. Хөгжим удирдах
 function toggleMusic() {
     if (music.paused) {
         music.play();
@@ -54,5 +52,4 @@ function toggleMusic() {
     }
 }
 
-// Хуудсыг ачаалахад шагайнуудыг бэлдэх
 window.onload = initializeShagai;
