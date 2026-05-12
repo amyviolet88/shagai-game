@@ -1,55 +1,58 @@
-// Товчлуур ажиллахгүй байхаас сэргийлж window объект дээр зарлав
-window.rollShagai = function() {
+const container = document.getElementById('shagai-container');
+const music = document.getElementById('bgMusic');
+const numberOfShagai = 4;
+const radius = 130; // Хээний гол тойрогт тааруулсан радиус
+
+// Шагайнуудын зургийн нэрс (өөрийн файлын нэрээр солино уу)
+const shagaiTypes = ['horse.png', 'sheep.png', 'camel.png', 'goat.png'];
+
+// 1. Шагайнуудыг тойрог хэлбэрээр анхлан байрлуулах функц
+function initializeShagai() {
+    container.innerHTML = ''; // Дахин зурахаас өмнө цэвэрлэнэ
+    for (let i = 0; i < numberOfShagai; i++) {
+        const shagai = document.createElement('img');
+        shagai.src = shagaiTypes[Math.floor(Math.random() * shagaiTypes.length)];
+        shagai.className = 'shagai';
+        shagai.id = `shagai-${i}`;
+
+        const angle = (i / numberOfShagai) * (2 * Math.PI);
+        const x = Math.cos(angle) * radius + (container.clientWidth / 2) - 35;
+        const y = Math.sin(angle) * radius + (container.clientHeight / 2) - 35;
+
+        shagai.style.left = `${x}px`;
+        shagai.style.top = `${y}px`;
+
+        container.appendChild(shagai);
+    }
+}
+
+// 2. Шагай орхих (санамсаргүй зураг гаргах)
+function rollShagai() {
+    // Хэрэв ая эхлээгүй бол тоглуулж эхэлнэ
+    if (music.paused) music.play();
+
     const shagaiElements = document.querySelectorAll('.shagai');
-    const resultDisplay = document.getElementById('result-text');
-    const btn = document.getElementById('roll-button');
-    
-    // Зургийн нэрс (Таны GitHub дээрх нэрстэй таарч байх ёстой)
-    const sides = ['honi.png', 'mori.png', 'temee.png', 'yamaa.png'];
-    
-    const messages = [
-        "Сайхан буулаа! Хийморь сэргэх болтугай!",
-        "Азтай байна! Өгөөжтэй сайхан жил болох нь!",
-        "Морь буулаа! Ажил үйлс тань бүтэмжтэй байна!",
-        "Тэмээ буулаа! Алсын аян тань өлзийтэй байг!",
-        "Хийморь сэргэсэн сайхан буулт боллоо!",
-        "Дөрвөн бэрх буух ойрхон байна шүү!"
-    ];
-
-    // Товчлуурыг түр идэвхгүй болгох
-    btn.disabled = true;
-    resultDisplay.innerText = "Шидэж байна...";
-
-    shagaiElements.forEach((el) => {
-        // 1. Санамсаргүй очих цэг (Радиус 60-150px дотор)
-        const radius = Math.random() * 120 + 40; 
-        const angle = Math.random() * Math.PI * 2;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+    shagaiElements.forEach(el => {
+        // Санамсаргүй төрөл сонгох
+        const randomType = shagaiTypes[Math.floor(Math.random() * shagaiTypes.length)];
+        el.src = randomType;
         
-        // 2. Маш их эргэлт (Spin)
-        const spin = 1440 + Math.random() * 1080; 
-
-        // 3. Web Animations API - Тойргоор цацагдах хөдөлгөөн
-        el.animate([
-            { transform: `translate(-50%, -50%) rotate(0deg) scale(1)`, offset: 0 },
-            { transform: `translate(calc(-50% + ${x/2}px), calc(-50% + ${y/2 - 250}px)) rotate(${spin/2}deg) scale(2.5)`, offset: 0.5 },
-            { transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${spin}deg) scale(1)`, offset: 1 }
-        ], {
-            duration: 1000,
-            easing: 'ease-out',
-            fill: 'forwards'
-        });
-
-        // 4. Дүрсийг санамсаргүйгээр солих
-        const randomSide = sides[Math.floor(Math.random() * sides.length)];
-        el.src = randomSide; 
+        // Бага зэрэг "үсэрч" байгаа мэт эффект
+        el.style.transform = `scale(1.2) rotate(${Math.random() * 360}deg)`;
+        setTimeout(() => {
+            el.style.transform = `scale(1) rotate(0deg)`;
+        }, 300);
     });
+}
 
-    // 1 секунд хүлээгээд үр дүнг харуулж, товчийг идэвхжүүлэх
-    setTimeout(() => {
-        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-        resultDisplay.innerText = randomMsg;
-        btn.disabled = false;
-    }, 1000);
-};
+// 3. Хөгжим удирдах
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+// Хуудсыг ачаалахад шагайнуудыг бэлдэх
+window.onload = initializeShagai;
