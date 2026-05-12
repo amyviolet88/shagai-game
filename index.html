@@ -1,28 +1,35 @@
+Төслийн бүх файлыг (HTML, CSS, JavaScript) нэгтгээд, таны хүссэн засваруудыг (арын фон жижигсгэх, текстийг дээшлүүлэх, ая оруулах, шагайг тойрог замаар эргүүлэх) тусгасан бүрэн кодыг доор орууллаа.
+
+Та эдгээр кодыг өөрийн GitHub дээрх харгалзах файлууддаа хуулж тавихад хангалттай.
+
+1. index.html
+Энэ хэсэгт тоглоомын бүтэц, текст болон ая тоглуулагчийг байрлуулсан.
+
+HTML
 <!DOCTYPE html>
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дөрвөн Бэрх Буулгацгаая</title>
+    <title>Дөрвөн бэрх - Шагай тоглоом</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="game-container">
-        <h1>Дөрвөн бэрх буулгацгаая!</h1>
-        
-        <div id="shagai-container">
-            <img src="honi.png" class="shagai" id="s1">
-            <img src="mori.png" class="shagai" id="s2">
-            <img src="temee.png" class="shagai" id="s3">
-            <img src="yamaa.png" class="shagai" id="s4">
+    <div class="game-container">
+        <h1 class="game-title">Дөрвөн бэрх буулгацгаая</h1>
+
+        <audio id="bgMusic" loop>
+            <source src="Морин хуур Монгол.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="shagai-circle" id="shagai-container">
+            </div>
+
+        <div class="controls">
+            <button onclick="rollShagai()" class="action-btn">Орхих</button>
+            <button onclick="toggleMusic()" class="music-btn">🎵 Ая асаах/унтраах</button>
         </div>
-        
-        <div id="result-box">
-            <p id="result-text">Шагайгаа орхиж хийморио үзээрэй!</p>
-        </div>
-        
-        <button id="roll-button" onclick="rollShagai()">Шагай орхих</button>
     </div>
 
     <script src="script.js"></script>
